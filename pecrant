@@ -24,11 +24,23 @@
     }
 
     _pecrant_up() {
-        vagrant up $(_pecrant_selected_id)
+        local id=$(_pecrant_selected_id)
+
+        if [ -z "$id" ] ; then
+            echo "Machine id is not specified"
+        else
+            vagrant up $id
+        fi
     }
 
     _pecrant_halt() {
-        vagrant halt $(_pecrant_selected_id)
+        local id=$(_pecrant_selected_id)
+
+        if [ -z "$id" ] ; then
+            echo "Machine id is not specified"
+        else
+            vagrant halt $id
+        fi
     }
 
     _pecrant_help() {
