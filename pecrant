@@ -2,6 +2,13 @@
 
 ## Functions
 
+    _exit_with() {
+        local message=$1
+
+        echo $message
+        exit 0
+    }
+
     _is_executable() {
         local command=$1
         type $command > /dev/null 2>&1
@@ -22,10 +29,7 @@
     _pecrant_up() {
         local ids=$(_pecrant_selected_ids)
 
-        if [ -z "$ids" ] ; then
-            echo "Machine id is not specified"
-            exit 1
-        fi
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
 
         for id in $ids ; do
             vagrant up $id
@@ -35,10 +39,7 @@
     _pecrant_halt() {
         local ids=$(_pecrant_selected_ids)
 
-        if [ -z "$ids" ] ; then
-            echo "Machine id is not specified"
-            exit 1;
-        fi
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
 
         for id in $ids ; do
             vagrant halt $id
