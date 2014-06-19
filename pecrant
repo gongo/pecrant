@@ -11,12 +11,8 @@
         vagrant global-status | awk '/^[[:alnum:]]{7} /' | peco
     }
 
-    _pecrant_selected_id() {
+    _pecrant_selected_ids() {
         _pecrant | awk '{print $1}'
-    }
-
-    _pecrant_selected_directory() {
-        _pecrant | awk '{print $5}'
     }
 
     _pecrant_list() {
@@ -24,23 +20,29 @@
     }
 
     _pecrant_up() {
-        local id=$(_pecrant_selected_id)
+        local ids=$(_pecrant_selected_ids)
 
-        if [ -z "$id" ] ; then
+        if [ -z "$ids" ] ; then
             echo "Machine id is not specified"
-        else
-            vagrant up $id
+            exit 1
         fi
+
+        for id in $ids ; do
+            vagrant up $id
+        done
     }
 
     _pecrant_halt() {
-        local id=$(_pecrant_selected_id)
+        local ids=$(_pecrant_selected_ids)
 
-        if [ -z "$id" ] ; then
+        if [ -z "$ids" ] ; then
             echo "Machine id is not specified"
-        else
-            vagrant halt $id
+            exit 1;
         fi
+
+        for id in $ids ; do
+            vagrant halt $id
+        done
     }
 
     _pecrant_help() {
