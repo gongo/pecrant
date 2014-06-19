@@ -33,7 +33,6 @@
 
     _pecrant_help() {
         cat <<EOF
-pecrant
 Usage: pecrant <command>
 
   up      Start the selected vagrant machine

@@ -15,6 +15,12 @@ Getting started
 
 ### Installation
 
+```
+$ cd /path/to/bin # in $PATH
+$ ccurl -O https://raw.githubusercontent.com/gongo/pecrant/master/pecrant
+$ chmod +x ./pecrant
+```
+
 ### Usage
 
 ```
