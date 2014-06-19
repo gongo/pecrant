@@ -1,0 +1,84 @@
+#!/bin/sh
+
+## Functions
+
+    _is_executable() {
+        local command=$1
+        type $command > /dev/null 2>&1
+    }
+
+    _pecrant() {
+        vagrant global-status | awk '/^[[:alnum:]]{7} /' | peco
+    }
+
+    _pecrant_selected_id() {
+        _pecrant | awk '{print $1}'
+    }
+
+    _pecrant_selected_directory() {
+        _pecrant | awk '{print $5}'
+    }
+
+    _pecrant_list() {
+        _pecrant
+    }
+
+    _pecrant_up() {
+        vagrant up $(_pecrant_selected_id)
+    }
+
+    _pecrant_halt() {
+        vagrant halt $(_pecrant_selected_id)
+    }
+
+    _pecrant_help() {
+        cat <<EOF
+pecrant
+Usage: pecrant <command>
+
+  up      Start the selected vagrant machine
+  halt    Stop the selected vagrant machine
+  list    Show vagrant environments for this user
+  help    Show this message
+EOF
+    }
+
+    pecrant() {
+        local sub=$1
+
+        if _is_executable "_pecrant_$sub" ; then
+            "_pecrant_$sub"
+        else
+            cat <<EOF
+pecrant: no such command \`$sub'
+EOF
+        fi
+    }
+
+## Check required command
+
+    _is_executable peco || {
+        cat <<EOF
+"peco" couldn't be found. Please install or set \$PATH.
+
+See: https://github.com/lestrrat/peco#installation
+EOF
+        exit 1
+    }
+
+    _is_executable vagrant || {
+        cat <<EOF
+"vagrant" couldn't be found. Please install or set \$PATH.
+
+See: http://docs.vagrantup.com/v2/installation/index.html
+EOF
+        exit 1
+    }
+
+## Main routine
+
+    if [ $# -eq 1 ] ; then
+        pecrant "$1"
+    else
+        pecrant help
+    fi
