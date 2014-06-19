@@ -34,13 +34,18 @@ Usage: pecrant <command>
   help    Show this message
 ```
 
-`$ pecrant up`
+`$ pecrant up`:
 
 ![](./images/pecrant_up.gif)
 
-`$ pecrant halt`
+`$ pecrant halt`:
 
 ![](./images/pecrant_halt.gif)
+
+
+Support `Select Multiple Lines`:
+
+![](./images/pecrant_multiple.gif)
 
 License
 --------------------
