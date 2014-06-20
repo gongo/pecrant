@@ -75,7 +75,7 @@ EOF
         cat <<EOF
 "peco" couldn't be found. Please install or set \$PATH.
 
-See: https://github.com/lestrrat/peco#installation
+See: https://github.com/peco/peco#installation
 EOF
         exit 1
     }

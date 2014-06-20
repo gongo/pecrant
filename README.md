@@ -6,7 +6,7 @@ Vagrant global-status controller for peco.
 Requirements
 --------------------
 
-- [lestrrat/peco](https://github.com/lestrrat/peco)
+- [peco](https://github.com/peco/peco)
 - [Vagrant 1.6 or higher](http://www.vagrantup.com/blog/feature-preview-vagrant-1-6-global-status.html)
     - use `vagrant global-status`
 
