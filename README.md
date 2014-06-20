@@ -30,6 +30,7 @@ Usage: pecrant <command>
 
   up      Start the selected vagrant machine
   halt    Stop the selected vagrant machine
+  ssh     Connect to machine via SSH
   list    Show vagrant environments for this user
   help    Show this message
 ```

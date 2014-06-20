@@ -26,6 +26,13 @@
         _pecrant
     }
 
+    _pecrant_ssh() {
+        local id=$(_pecrant_selected_ids | awk 'NR == 1')
+
+        [ -z "$id" ] && _exit_with "Machine id is not specified"
+        vagrant ssh $id
+    }
+
     _pecrant_up() {
         local ids=$(_pecrant_selected_ids)
 
@@ -52,6 +59,7 @@ Usage: pecrant <command>
 
   up      Start the selected vagrant machine
   halt    Stop the selected vagrant machine
+  ssh     Connect to machine via SSH
   list    Show vagrant environments for this user
   help    Show this message
 EOF
