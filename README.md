@@ -31,7 +31,7 @@ Usage: pecrant <command>
   up      Start the selected vagrant machine
   halt    Stop the selected vagrant machine
   ssh     Connect to machine via SSH
-  list    Show vagrant environments for this user
+  list    Show vagrant environments for this user (and output directory)
   help    Show this message
 ```
 
@@ -43,10 +43,15 @@ Usage: pecrant <command>
 
 ![](./images/pecrant_halt.gif)
 
+#### Advance
 
 Support `Select Multiple Lines`:
 
 ![](./images/pecrant_multiple.gif)
+
+Alternative of `pecrant cd`
+
+    $ cd $(pecrant list)
 
 License
 --------------------
