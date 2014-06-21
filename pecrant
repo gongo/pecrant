@@ -23,7 +23,7 @@
     }
 
     _pecrant_list() {
-        _pecrant
+        _pecrant | awk '{print $5}'
     }
 
     _pecrant_ssh() {
@@ -60,7 +60,7 @@ Usage: pecrant <command>
   up      Start the selected vagrant machine
   halt    Stop the selected vagrant machine
   ssh     Connect to machine via SSH
-  list    Show vagrant environments for this user
+  list    Show vagrant environments for this user (and output directory)
   help    Show this message
 EOF
     }
