@@ -31,6 +31,7 @@ Usage: pecrant <command>
   up      Start the selected vagrant machine
   halt    Stop the selected vagrant machine
   list    Show vagrant environments for this user
+  box     Manage vagrant boxes: update, remove
   help    Show this message
 ```
 
