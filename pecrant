@@ -27,7 +27,12 @@
     }
 
     _pecrant_dir() {
-        _pecrant | awk '{print $5}'
+        _pecrant | awk '{
+          for (i = 5; i < NF; i++) {
+              printf("%s ", $i)
+          }
+          print $NF
+        }'
     }
 
     _pecrant_ssh() {

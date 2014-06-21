@@ -52,7 +52,7 @@ Support `Select Multiple Lines`:
 
 Alternative of `pecrant cd`
 
-    $ cd $(pecrant dir)
+    $ cd "$(pecrant dir)"
 
 License
 --------------------
