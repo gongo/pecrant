@@ -1,7 +1,7 @@
 pecrant
 ==========
 
-Vagrant global-status controller for peco.
+Vagrant `global-status` / `box` controller for peco.
 
 Requirements
 --------------------
@@ -23,9 +23,10 @@ $ chmod +x ./pecrant
 
 ### Usage
 
+#### For vagrant global-status
+
 ```
 $ pecrant help
-pecrant
 Usage: pecrant <command>
 
   up      Start the selected vagrant machine
@@ -44,6 +45,18 @@ Usage: pecrant <command>
 `$ pecrant halt`:
 
 ![](./images/pecrant_halt.gif)
+
+#### For vagrant box
+
+```
+$ pecrant box help
+Usage: pecrant box <command>
+
+  update  Update the selected vagrant box
+  remove  Remove the selected vagrant box
+  list    List vagrant boxes for this user
+  help    Show this message
+```
 
 #### Advance
 
