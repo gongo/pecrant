@@ -69,17 +69,17 @@
     }
 
     _pecrant_box_update() {
-        _pecrant_box_list | awk '{
-            cmd = sprintf("--box %s --provider %s", $1, $2)
-            system("vagrant box update" FS cmd)
-        }'
+        args=$(_pecrant_box_list | awk '{
+            printf("--box %s --provider %s", $1, $2)
+        }')
+        vagrant box update $args
     }
 
     _pecrant_box_remove() {
-        _pecrant_box_list | awk '{
-            cmd = sprintf("%s --provider %s --box-version %s", $1, $2, $3)
-            system("vagrant box remove" FS cmd)
-        }'
+        args=$(_pecrant_box_list | awk '{
+            printf("%s --provider %s --box-version %s", $1, $2, $3)
+        }')
+        vagrant box remove $args
     }
 
     _pecrant_box_help() {
