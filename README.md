@@ -31,7 +31,8 @@ Usage: pecrant <command>
   up      Start the selected vagrant machine
   halt    Stop the selected vagrant machine
   ssh     Connect to machine via SSH
-  list    Show vagrant environments for this user (and output directory)
+  dir     Show directory path for vagrant environments
+  list    Show vagrant environments for this user
   help    Show this message
 ```
 
@@ -51,7 +52,7 @@ Support `Select Multiple Lines`:
 
 Alternative of `pecrant cd`
 
-    $ cd $(pecrant list)
+    $ cd $(pecrant dir)
 
 License
 --------------------
