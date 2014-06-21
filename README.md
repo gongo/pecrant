@@ -33,6 +33,7 @@ Usage: pecrant <command>
   ssh     Connect to machine via SSH
   dir     Show directory path for vagrant environments
   list    Show vagrant environments for this user
+  box     Manage vagrant boxes: update, remove
   help    Show this message
 ```
 
