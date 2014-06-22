@@ -69,17 +69,27 @@
     }
 
     _pecrant_box_update() {
-        args=$(_pecrant_box_list | awk '{
-            printf("--box %s --provider %s", $1, $2)
+        local arg_lines=$(_pecrant_box_list | awk '{
+            printf("--box %s --provider %s\n", $1, $2)
         }')
-        vagrant box update $args
+
+        local IFS=$'\n'
+
+        for args in $arg_lines ; do
+            IFS=" "; vagrant box update $args
+        done
     }
 
     _pecrant_box_remove() {
-        args=$(_pecrant_box_list | awk '{
-            printf("%s --provider %s --box-version %s", $1, $2, $3)
+        local arg_lines=$(_pecrant_box_list | awk '{
+            printf("%s --provider %s --box-version %s\n", $1, $2, $3)
         }')
-        vagrant box remove $args
+
+        local IFS=$'\n'
+
+        for args in $arg_lines ; do
+            IFS=" "; vagrant box remove $args
+        done
     }
 
     _pecrant_box_help() {
