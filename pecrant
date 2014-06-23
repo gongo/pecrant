@@ -62,6 +62,16 @@
         done
     }
 
+    _pecrant_destroy() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant destroy $id
+        done
+    }
+
     _pecrant_box_list() {
         vagrant box list | peco | awk '{
             print $1, substr($2,2,length($2)-2), substr($3,0,length($3)-1)
@@ -126,6 +136,7 @@ Usage: pecrant <command>
 
   up      Start the selected vagrant machine
   halt    Stop the selected vagrant machine
+  destroy Stop and delete all traces of the vagrant machine
   ssh     Connect to machine via SSH
   dir     Show directory path for vagrant environments
   list    Show vagrant environments for this user
