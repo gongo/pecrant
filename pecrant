@@ -52,6 +52,46 @@
         done
     }
 
+    _pecrant_provision() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant provision $id
+        done
+    }
+
+    _pecrant_reload() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant reload $id
+        done
+    }
+
+    _pecrant_suspend() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant suspend $id
+        done
+    }
+
+    _pecrant_resume() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant resume $id
+        done
+    }
+
     _pecrant_halt() {
         local ids=$(_pecrant_selected_ids)
 
@@ -134,14 +174,18 @@ EOF
         cat <<EOF
 Usage: pecrant <command>
 
-  up      Start the selected vagrant machine
-  halt    Stop the selected vagrant machine
-  destroy Stop and delete all traces of the vagrant machine
-  ssh     Connect to machine via SSH
-  dir     Show directory path for vagrant environments
-  list    Show vagrant environments for this user
-  box     Manage vagrant boxes: update, remove
-  help    Show this message
+  up        Start the selected vagrant machine
+  provision Provision the selected vagrant machine
+  reload    Restart the selected vagrant machine
+  suspend   Suspend the selected vagrant machine
+  resume    Resume the selected vagrant machine
+  halt      Stop the selected vagrant machine
+  destroy   Stop and delete all traces of the vagrant machine
+  ssh       Connect to machine via SSH
+  dir       Show directory path for vagrant environments
+  list      Show vagrant environments for this user
+  box       Manage vagrant boxes: update, remove
+  help      Show this message
 EOF
     }
 
