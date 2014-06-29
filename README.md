@@ -29,14 +29,18 @@ $ chmod +x ./pecrant
 $ pecrant help
 Usage: pecrant <command>
 
-  up      Start the selected vagrant machine
-  halt    Stop the selected vagrant machine
-  destroy Stop and delete all traces of the vagrant machine
-  ssh     Connect to machine via SSH
-  dir     Show directory path for vagrant environments
-  list    Show vagrant environments for this user
-  box     Manage vagrant boxes: update, remove
-  help    Show this message
+  up        Start the selected vagrant machine
+  provision Provision the selected vagrant machine
+  reload    Restart the selected vagrant machine
+  suspend   Suspend the selected vagrant machine
+  resume    Resume the selected vagrant machine
+  halt      Stop the selected vagrant machine
+  destroy   Stop and delete all traces of the vagrant machine
+  ssh       Connect to machine via SSH
+  dir       Show directory path for vagrant environments
+  list      Show vagrant environments for this user
+  box       Manage vagrant boxes: update, remove
+  help      Show this message
 ```
 
 `$ pecrant up`:
