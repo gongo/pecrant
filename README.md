@@ -1,7 +1,7 @@
 pecrant
 ==========
 
-[![Build Status](https://travis-ci.org/gongo/pecrant.svg?branch=travisci)](https://travis-ci.org/gongo/pecrant)
+[![Build Status](https://travis-ci.org/gongo/pecrant.svg?branch=master)](https://travis-ci.org/gongo/pecrant)
 
 Vagrant `global-status` / `box` controller for peco.
 
