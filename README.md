@@ -10,7 +10,7 @@ Requirements
 
 - [peco](https://github.com/peco/peco)
 - [Vagrant 1.6 or higher](http://www.vagrantup.com/blog/feature-preview-vagrant-1-6-global-status.html)
-    - use `vagrant global-status`
+    - Using `vagrant global-status`
 
 Getting started
 --------------------
