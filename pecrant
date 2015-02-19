@@ -223,8 +223,10 @@ EOF
 
 ## Main routine
 
-    if [ $# -ge 1 ] ; then
-        pecrant "$*"
-    else
-        pecrant help
+    if [ `basename $0` = "pecrant" ] ; then
+        if [ $# -ge 1 ] ; then
+            pecrant "$*"
+        else
+            pecrant help
+        fi
     fi
