@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# stub for test
+peco() { return 0; }
+vagrant() { return 0; }
+
 . ./pecrant
 
 unset -f _pecrant
