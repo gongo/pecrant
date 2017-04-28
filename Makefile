@@ -7,7 +7,7 @@ TEST_RUNNER_DIR     = shunit2
 all: init test
 
 init:
-	@curl -L "https://shunit2.googlecode.com/files/shunit2-$(TEST_RUNNER_VERSION).tgz" | tar zx
+	@curl -L "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/shunit2/shunit2-$(TEST_RUNNER_VERSION).tgz" | tar zx
 	@mv shunit2-$(TEST_RUNNER_VERSION) $(TEST_RUNNER_DIR)
 
 test:
