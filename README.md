@@ -3,7 +3,7 @@ pecrant
 
 [![Build Status](https://travis-ci.org/gongo/pecrant.svg?branch=master)](https://travis-ci.org/gongo/pecrant)
 
-Vagrant `global-status` / `box` controller for peco.
+Vagrant `global-status` controller for peco.
 
 Requirements
 --------------------
@@ -25,8 +25,6 @@ $ chmod +x ./pecrant
 
 ### Usage
 
-#### For vagrant global-status
-
 ```
 $ pecrant help
 Usage: pecrant <command>
@@ -41,7 +39,6 @@ Usage: pecrant <command>
   ssh       Connect to machine via SSH
   dir       Show directory path for vagrant environments
   list      Show vagrant environments for this user
-  box       Manage vagrant boxes: update, remove
   help      Show this message
 ```
 
@@ -52,18 +49,6 @@ Usage: pecrant <command>
 `$ pecrant halt`:
 
 ![](./images/pecrant_halt.gif)
-
-#### For vagrant box
-
-```
-$ pecrant box help
-Usage: pecrant box <command>
-
-  update  Update the selected vagrant box
-  remove  Remove the selected vagrant box
-  list    List vagrant boxes for this user
-  help    Show this message
-```
 
 #### Advance
 
