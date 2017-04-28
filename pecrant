@@ -112,64 +112,6 @@
         done
     }
 
-    _pecrant_box_list() {
-        vagrant box list | peco | awk '{
-            print $1, substr($2,2,length($2)-2), substr($3,0,length($3)-1)
-        }'
-    }
-
-    _pecrant_box_update() {
-        local arg_lines=$(_pecrant_box_list | awk '{
-            printf("--box %s --provider %s\n", $1, $2)
-        }')
-
-        local IFS=$'\n'
-
-        for args in $arg_lines ; do
-            IFS=" "; vagrant box update $args
-        done
-    }
-
-    _pecrant_box_remove() {
-        local arg_lines=$(_pecrant_box_list | awk '{
-            printf("%s --provider %s --box-version %s\n", $1, $2, $3)
-        }')
-
-        local IFS=$'\n'
-
-        for args in $arg_lines ; do
-            IFS=" "; vagrant box remove $args
-        done
-    }
-
-    _pecrant_box_help() {
-        cat <<EOF
-Usage: pecrant box <command>
-
-  update  Update the selected vagrant box
-  remove  Remove the selected vagrant box
-  list    List vagrant boxes for this user
-  help    Show this message
-EOF
-    }
-
-    _pecrant_box() {
-        local sub=$1
-
-        if [ -z "$sub" ] ; then
-            _pecrant_box_help
-            return
-        fi
-
-        if _is_executable "_pecrant_box_$sub" ; then
-            "_pecrant_box_$sub"
-        else
-            cat <<EOF
-pecrant: no such command \`box $sub'
-EOF
-        fi
-    }
-
     _pecrant_help() {
         cat <<EOF
 Usage: pecrant <command>
@@ -184,7 +126,6 @@ Usage: pecrant <command>
   ssh       Connect to machine via SSH
   dir       Show directory path for vagrant environments
   list      Show vagrant environments for this user
-  box       Manage vagrant boxes: update, remove
   help      Show this message
 EOF
     }
